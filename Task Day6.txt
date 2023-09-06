@@ -1,0 +1,52 @@
+// ///////////Write a “person” class to hold all the details.
+
+class person {
+      constructor() {
+        this.array = this.getMarks();
+      }
+      getMarks() {
+        let array1 = [];
+        array1.push(Number(prompt("enter marks for english out of 100")));
+        array1.push(Number(prompt("enter marks for hindi out of 100")));
+        array1.push(Number(prompt("enter marks for marathi out of 100")));
+        array1.push(Number(prompt("enter marks for maths out of 100")));
+        array1.push(Number(prompt("enter marks for science out of 100")));
+        return array1;
+      }
+      calculate() {
+        this.total = this.getTotal();
+        this.avg = this.getAvg();
+        this.grade = this.getGrade();
+      }
+      getTotal() {
+        let sum = 0;
+        this.array.forEach((element) => {
+          sum += element;
+        });
+        return sum;
+      }
+      getAvg() {
+        return this.total / this.array.length;
+      }
+      getGrade() {
+        if (this.avg >= 90) {
+          return "A";
+        } else if (this.avg >= 80) {
+          return "B";
+        } else if (this.avg >= 70) {
+          return "C";
+        } else {
+          return "D";
+        }
+      }
+    
+      print() {
+        console.log("Total = " + this.total);
+        console.log("Average = " + this.avg);
+        console.log("Grade = " + this.grade);
+      }
+    }
+    
+    let arman = new person();
+    arman.calculate();
+    arman.print();
